@@ -1,0 +1,101 @@
+// color
+$color-red-01: #DF1F00;
+$color-red-02: #F56B62;
+$color-red-03: #FF8A80;
+$color-red-04: #FFF0F0;
+
+$color-yellow-01: #FEFBDA;
+
+$color-black: #000000;
+$color-white: #FFFFFF;
+
+$color-grey-01: #333333;
+$color-grey-02: #777777;
+$color-grey-03: #999999;
+$color-grey-04: #CCCCCC;
+$color-grey-05: #EEEEEE;
+$color-grey-06: #FBFBFB;
+
+$color-error: #E21B00;
+
+// typography
+$body-font-family: 'Noto Sans JP';
+
+@mixin h1 {
+  font-size: 22px;
+  letter-spacing: 0.73px;
+  font-weight: bold;
+}
+
+@mixin h2 {
+  font-size: 20px;
+  letter-spacing: 0.67px;
+  font-weight: bold;
+}
+
+@mixin h3 {
+  font-size: 16px;
+  letter-spacing: 0.53px;
+  font-weight: bold;
+}
+
+@mixin h4 {
+  font-size: 14px;
+  letter-spacing: 0.47px;
+  font-weight: bold;
+}
+
+@mixin body1 {
+  font-size: 16px;
+  letter-spacing: 0.53px;
+  font-weight: normal;
+}
+
+@mixin body2 {
+  font-size: 14px;
+  letter-spacing: 0.47px;
+  font-weight: normal;
+}
+
+@mixin body3 {
+  font-size: 13px;
+  letter-spacing: 0.43px;
+  font-weight: normal;
+}
+
+@mixin body4 {
+  font-size: 11px;
+  letter-spacing: 0.37px;
+  font-weight: normal;
+}
+
+@mixin no-box-shadow {
+  -webkit-box-shadow: 0 0;
+  box-shadow: 0 0;
+}
+
+@mixin visible-area {
+  max-width: 1280px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+:export {
+  red01: $color-red-01;
+  red02: $color-red-02;
+  red03: $color-red-03;
+  red04: $color-red-04;
+  yellow01: $color-yellow-01;
+  black: $color-black;
+  white01: $color-white;
+
+  grey01: $color-grey-01;
+  grey02: $color-grey-02;
+  grey03: $color-grey-03;
+  grey04: $color-grey-04;
+  grey05: $color-grey-05;
+
+  error: $color-red-01;
+
+}
