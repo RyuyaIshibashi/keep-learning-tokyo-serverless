@@ -31,16 +31,16 @@ export default {
   props: {
     tags: {
       type: Array,
-      required: true
+      required: true,
     },
     isSmall: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isCount: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     gotoTagArticles (id) {
@@ -51,7 +51,7 @@ export default {
         return tag.fields.posts.length;
       }
       return 0;
-    }
-  }
+    },
+  },
 };
 </script>

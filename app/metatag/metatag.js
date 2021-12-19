@@ -19,7 +19,7 @@ export default {
         { property: 'twitter:description', content: description },
         {
           property: 'twitter:image',
-          content: imgUrl
+          content: imgUrl,
         },
         { property: 'og:title', content: titleTemplate },
         { property: 'og:description', content: description },
@@ -27,9 +27,9 @@ export default {
         { property: 'og:url', content: currentUrl },
         {
           property: 'og:image',
-          content: imgUrl
-        }
-      ]
+          content: imgUrl,
+        },
+      ],
     };
-  }
+  },
 };

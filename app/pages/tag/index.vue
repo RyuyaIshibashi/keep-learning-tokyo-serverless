@@ -25,39 +25,28 @@
 <script>
 import Vue from 'vue';
 import metatag from '@/metatag/metatag';
-import util from '@/scripts/util';
 import TagChip from '@/components/molecules/TagChip';
 
 export default Vue.extend({
   name: 'TagIndex',
   components: {
-    TagChip
+    TagChip,
   },
-  mixins: [metatag, util],
-  async asyncData ({ store }) {
-    const tags = await store.dispatch('contentfulGetAllTags');
-    await Promise.all(tags.map(async (tag) => {
-      const posts = await store.dispatch('contentfulGetTagPosts', {
-        'fields.tags.sys.id': tag.sys.id
-      });
-      tag.fields.posts = posts;
-    }));
-
-    tags.sort((a, b) => {
-      if (a.fields.posts.length > b.fields.posts.length) { return -1; }
-      if (a.fields.posts.length < b.fields.posts.length) { return 1; }
-      return 0;
-    });
-
+  mixins: [metatag],
+  asyncData () {
     return {
-      tags,
       meta: {
         title: 'タグの一覧',
         description: 'タグの一覧',
-        imgUrl: null
-      }
+        imgUrl: null,
+      },
     };
-  }
+  },
+  computed: {
+    tags () {
+      return this.$store.state.tags;
+    },
+  },
 });
 </script>
 <style lang="scss" scoped>

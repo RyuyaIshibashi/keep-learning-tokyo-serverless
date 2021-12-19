@@ -14,6 +14,12 @@ import actions from './actions';
 //   }
 // });
 
-const state = () => ({});
-const mutations = {};
+const state = () => ({
+  tags: [],
+});
+const mutations = {
+  setTags (state, val) {
+    state.tags = val;
+  },
+};
 export { state, mutations, actions };

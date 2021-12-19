@@ -13,7 +13,7 @@ import Posts from '@/components/organisms/Posts';
 export default Vue.extend({
   name: 'Index',
   components: {
-    Posts
+    Posts,
   },
   mixins: [metatag, util],
   async asyncData ({ store }) {
@@ -30,8 +30,8 @@ export default Vue.extend({
 
     return {
       posts,
-      meta: {}
+      meta: {},
     };
-  }
+  },
 });
 </script>

@@ -30,22 +30,22 @@
 </template>
 
 <script>
-import Header from '@/components/molecules/Header';
-import SideMenu from '@/components/molecules/SideMenu';
+import Header from '@/components/organisms/Header';
+import SideMenu from '@/components/organisms/SideMenu';
 import ScrollButton from '@/components/molecules/ScrollButton';
 
 export default {
   name: 'App',
   components: {
-    Header, SideMenu, ScrollButton
+    Header, SideMenu, ScrollButton,
   },
+  middleware: 'getAllTags',
   data: () => ({
     isFixed: false,
-    sideBarTop: 0
+    sideBarTop: 0,
   }),
   mounted () {
     this.sideBarTop = this.$refs.sideBar.getBoundingClientRect().top;
-    console.log(this.sideBarTop);
   },
   methods: {
     onScroll (e) {
@@ -61,8 +61,8 @@ export default {
           this.isFixed = true;
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -67,12 +67,12 @@ import TagChip from '@/components/molecules/TagChip';
 export default Vue.extend({
   name: 'Post',
   components: {
-    CategoryChip, TagChip, VueMarkdown
+    CategoryChip, TagChip, VueMarkdown,
   },
   mixins: [metatag, util],
   async asyncData ({ store, route }) {
     const post = await store.dispatch('contentfulGetPost', {
-      'fields.name': route.params.id
+      'fields.name': route.params.id,
     });
     post.sys.locatedCreatedAt = util.methods.$_toLocalDate(post.sys.createdAt);
 
@@ -86,15 +86,15 @@ export default Vue.extend({
       meta: {
         title: post.fields.title,
         description: post.fields.title,
-        imgUrl
-      }
+        imgUrl,
+      },
     };
   },
   data: () => ({
     anchorAttributes: {
       target: '_blank',
-      rel: 'noopener noreferrer nofollow'
-    }
+      rel: 'noopener noreferrer nofollow',
+    },
   }),
   computed: {
     fontSize () {
@@ -102,13 +102,13 @@ export default Vue.extend({
         case 'xs': return '3em';
         default: return '5em';
       }
-    }
+    },
   },
   methods: {
     goto (path) {
       this.$router.push(path);
-    }
-  }
+    },
+  },
 });
 </script>
 <style>

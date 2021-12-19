@@ -2,15 +2,15 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
-    requireConfigFile: false
+    requireConfigFile: false,
   },
   extends: [
     '@nuxtjs',
-    'plugin:nuxt/recommended'
+    'plugin:nuxt/recommended',
   ],
   // required to lint *.vue files
   plugins: [
@@ -19,13 +19,8 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: 'all',
-        'comma-dangle': [error, 'never'],
-      },
-    ]
-  }
-}
+    'comma-dangle': ['error', 'always-multiline'],
+    semi: ['error', 'always'],
+    'vue/multi-word-component-names': 0,
+  },
+};

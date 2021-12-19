@@ -24,16 +24,16 @@ import metatag from '@/metatag/metatag';
 export default Vue.extend({
   name: 'CategoryPosts',
   components: {
-    Posts
+    Posts,
   },
   mixins: [metatag, util],
   async asyncData ({ store, route }) {
     const category = await store.dispatch('contentfulGetCategory', {
-      'fields.title': route.params.id
+      'fields.title': route.params.id,
     });
 
     const posts = await store.dispatch('contentfulGetCategoryPosts', {
-      'fields.category.sys.id': category.sys.id
+      'fields.category.sys.id': category.sys.id,
     });
     posts.forEach((p) => {
       const post = p;
@@ -51,15 +51,15 @@ export default Vue.extend({
       meta: {
         title: `カテゴリー：${category.fields.title}`,
         description: `カテゴリー：${category.fields.title}`,
-        imgUrl: category.fields.image.fields.file.url
-      }
+        imgUrl: category.fields.image.fields.file.url,
+      },
     };
   },
   methods: {
     gotoArticle (id) {
       this.$router.push(`/${id}`);
-    }
-  }
+    },
+  },
 });
 </script>
 <style lang="scss" scoped>

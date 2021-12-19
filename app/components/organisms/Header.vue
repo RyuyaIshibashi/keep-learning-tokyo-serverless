@@ -46,16 +46,16 @@
 </template>
 
 <script>
-import SideMenu from '@/components/molecules/SideMenu';
+import SideMenu from '@/components/organisms/SideMenu';
 
 export default {
   name: 'Header',
   components: {
-    SideMenu
+    SideMenu,
   },
   data () {
     return {
-      drawer: false
+      drawer: false,
     };
   },
   methods: {
@@ -67,7 +67,7 @@ export default {
     },
     closeDrawer () {
       this.$set(this, 'drawer', false);
-    }
-  }
+    },
+  },
 };
 </script>

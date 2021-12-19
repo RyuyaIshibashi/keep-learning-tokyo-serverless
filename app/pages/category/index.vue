@@ -31,14 +31,14 @@ import metatag from '@/metatag/metatag';
 export default Vue.extend({
   name: 'CategoryIndex',
   components: {
-    CategoryChip
+    CategoryChip,
   },
   mixins: [metatag, util],
   async asyncData ({ store }) {
     const categories = await store.dispatch('contentfulGetAllCategories');
     await Promise.all(categories.map(async (category) => {
       const posts = await store.dispatch('contentfulGetCategoryPosts', {
-        'fields.category.sys.id': category.sys.id
+        'fields.category.sys.id': category.sys.id,
       });
       category.fields.posts = posts;
     }));
@@ -53,10 +53,10 @@ export default Vue.extend({
       meta: {
         title: 'カテゴリーの一覧',
         description: 'カテゴリーの一覧',
-        imgUrl: null
-      }
+        imgUrl: null,
+      },
     };
-  }
+  },
 });
 </script>
 <style lang="scss" scoped>

@@ -42,6 +42,27 @@ export default {
     },
     $_toLocalDate (dateTime) {
       return moment(dateTime).format('YYYY/MM/DD HH:mm');
-    }
+    },
+    async $_getAllTags (store) {
+      let tags = await store.dispatch('contentfulGetAllTags');
+      await Promise.all(tags.map(async (tag) => {
+        const posts = await store.dispatch('contentfulGetTagPosts', {
+          'fields.tags.sys.id': tag.sys.id,
+        });
+        tag.fields.posts = posts;
+      }));
+
+      tags = tags.filter((tag) => {
+        return tag.fields.posts.length > 0;
+      })
+
+      tags.sort((a, b) => {
+        if (a.fields.posts.length > b.fields.posts.length) { return -1; }
+        if (a.fields.posts.length < b.fields.posts.length) { return 1; }
+        return 0;
+      });
+
+      return tags;
+    },
   }
 };

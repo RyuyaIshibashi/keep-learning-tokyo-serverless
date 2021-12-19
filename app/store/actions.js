@@ -11,8 +11,8 @@ export default {
       api: methodTypes.CONTENTFUL_GET_ENTRIES,
       params: {
         content_type: 'post',
-        ...payload
-      }
+        ...payload,
+      },
     });
     return posts.items[0];
   },
@@ -21,8 +21,8 @@ export default {
       api: methodTypes.CONTENTFUL_GET_ENTRIES,
       params: {
         content_type: 'post',
-        order: '-sys.createdAt'
-      }
+        order: '-sys.createdAt',
+      },
     });
     return posts.items;
   },
@@ -31,8 +31,8 @@ export default {
       api: methodTypes.CONTENTFUL_GET_ENTRIES,
       params: {
         content_type: 'tag',
-        ...payload
-      }
+        ...payload,
+      },
     });
     return tags.items[0];
   },
@@ -41,8 +41,8 @@ export default {
       api: methodTypes.CONTENTFUL_GET_ENTRIES,
       params: {
         content_type: 'tag',
-        order: '-sys.createdAt'
-      }
+        order: '-sys.createdAt',
+      },
     });
     return tags.items;
   },
@@ -52,8 +52,8 @@ export default {
       params: {
         content_type: 'post',
         ...payload,
-        order: '-sys.createdAt'
-      }
+        order: '-sys.createdAt',
+      },
     });
     return tags.items;
   },
@@ -62,8 +62,8 @@ export default {
       api: methodTypes.CONTENTFUL_GET_ENTRIES,
       params: {
         content_type: 'category',
-        ...payload
-      }
+        ...payload,
+      },
     });
     return categories.items[0];
   },
@@ -72,8 +72,8 @@ export default {
       api: methodTypes.CONTENTFUL_GET_ENTRIES,
       params: {
         content_type: 'category',
-        order: '-sys.createdAt'
-      }
+        order: '-sys.createdAt',
+      },
     });
     return categories.items;
   },
@@ -83,9 +83,9 @@ export default {
       params: {
         content_type: 'post',
         ...payload,
-        order: '-sys.createdAt'
-      }
+        order: '-sys.createdAt',
+      },
     });
     return categories.items;
-  }
+  },
 };

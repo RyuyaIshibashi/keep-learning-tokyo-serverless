@@ -51,19 +51,19 @@ import TagChip from '@/components/molecules/TagChip';
 export default {
   name: 'Posts',
   components: {
-    VueMarkdown, CategoryChip, TagChip
+    VueMarkdown, CategoryChip, TagChip,
   },
   props: {
     posts: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     gotoArticle (id) {
       this.$router.push(`/${id}`);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

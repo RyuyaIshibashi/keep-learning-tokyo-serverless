@@ -22,18 +22,17 @@ import util from '@/scripts/util';
 import Posts from '@/components/organisms/Posts';
 
 export default Vue.extend({
-  name: 'TagPosts',
   components: {
-    Posts
+    Posts,
   },
   mixins: [metatag, util],
   async asyncData ({ store, route }) {
     const tag = await store.dispatch('contentfulGetTag', {
-      'fields.title': route.params.id
+      'fields.title': route.params.id,
     });
 
     const posts = await store.dispatch('contentfulGetTagPosts', {
-      'fields.tags.sys.id': tag.sys.id
+      'fields.tags.sys.id': tag.sys.id,
     });
     posts.forEach((p) => {
       const post = p;
@@ -51,15 +50,15 @@ export default Vue.extend({
       meta: {
         title: `タグ：${tag.fields.title}`,
         description: `タグ：${tag.fields.title}`,
-        imgUrl: ''
-      }
+        imgUrl: '',
+      },
     };
   },
   methods: {
     gotoArticle (id) {
       this.$router.push(`/${id}`);
-    }
-  }
+    },
+  },
 });
 </script>
 <style lang="scss" scoped>

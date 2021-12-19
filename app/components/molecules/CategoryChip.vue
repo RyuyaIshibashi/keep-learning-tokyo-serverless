@@ -33,16 +33,16 @@ export default {
   props: {
     categories: {
       type: Array,
-      required: true
+      required: true,
     },
     isSmall: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isCount: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     gotoCategoryArticles (id) {
@@ -53,7 +53,7 @@ export default {
         return category.fields.posts.length;
       }
       return 0;
-    }
-  }
+    },
+  },
 };
 </script>
