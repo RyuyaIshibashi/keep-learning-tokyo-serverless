@@ -5,7 +5,7 @@ export default {
     const titleTemplate = title ? `${title} | ${basicTitle}` : basicTitle;
     const rootUrl = 'https://keep-learning.tokyo';
     const description = this.meta.description ? this.meta.description : 'VueやJavascript、AWSの技術メモを発信しているブログです。';
-    const imgUrl = this.meta.imgUrl ? `https:${this.meta.imgUrl}` : rootUrl + '/img/logo.png';
+    const imgUrl = this.meta.imgUrl ? `https:${this.meta.imgUrl}` : rootUrl + 'assets/img/logo.png';
     const currentUrl = rootUrl + this.$route.path;
     return {
       // titleTemplate: str => (str ? `${str} | ${basicTitle}` : basicTitle),
