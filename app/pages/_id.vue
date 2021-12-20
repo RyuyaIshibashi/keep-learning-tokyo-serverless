@@ -49,6 +49,7 @@
       class="mt-12 mb-4 article-body"
     >
       <VueMarkdown
+        id="post"
         class="text-body-2 article"
         :anchor-attributes="anchorAttributes"
         :source="post.fields.body"

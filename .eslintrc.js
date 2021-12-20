@@ -22,5 +22,6 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
     semi: ['error', 'always'],
     'vue/multi-word-component-names': 0,
+    'nuxt/no-cjs-in-config': 0,
   },
 };

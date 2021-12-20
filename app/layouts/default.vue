@@ -16,8 +16,10 @@
             v-scroll="onScroll"
             class="d-none d-lg-block"
           >
-            <aside :class="{fixed: isFixed}">
-              <SideMenu />
+            <aside>
+              <SideMenu
+                :is-fixed="isFixed"
+              />
             </aside>
           </v-col>
         </v-row>
@@ -45,7 +47,7 @@ export default {
     sideBarTop: 0,
   }),
   mounted () {
-    this.sideBarTop = this.$refs.sideBar.getBoundingClientRect().top;
+    this.sideBarTop = document.getElementById('catalog').getBoundingClientRect().top;
   },
   methods: {
     onScroll (e) {
@@ -217,13 +219,6 @@ $color-pack: false;
   max-width: 300px;
   width: 300px;
   margin-left: 24px;
-}
-
-#side-bar aside.fixed {
-  max-width: 300px;
-  width: 300px;
-  position: fixed;
-  top: 28px;
 }
 
 .link-hover {

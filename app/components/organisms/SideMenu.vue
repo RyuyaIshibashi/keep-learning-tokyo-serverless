@@ -1,6 +1,6 @@
 <template>
-  <div class="mb-3">
-    <div class="About mb-8">
+  <div class>
+    <div class="about mb-8">
       <v-row>
         <v-col>
           <h3>
@@ -30,7 +30,7 @@
         </div>
       </v-row>
     </div>
-    <div class="hot-tags mb-3">
+    <div class="hot-tags mb-8">
       <v-row>
         <v-col class="hot-tags-title">
           <h3 class="pr-3">
@@ -48,21 +48,52 @@
         />
       </v-row>
     </div>
+    <div
+      v-if="$route.name === 'id'"
+      id="catalog"
+      class="catalog"
+      :class="{fixed: isFixed}"
+    >
+      <v-row>
+        <v-col class="catalog-title">
+          <h3 class="pr-3">
+            Catalog
+          </h3>
+        </v-col>
+      </v-row>
+      <v-row>
+        <SideCatalog
+          class="catalog"
+          v-bind="catalogProps"
+        />
+      </v-row>
+    </div>
   </div>
 </template>
 <script>
+import SideCatalog from 'vue-side-catalog';
 import TagChip from '@/components/molecules/TagChip';
+import 'vue-side-catalog/lib/vue-side-catalog.css';
 
 export default {
   name: 'SideMenu',
   components: {
+    SideCatalog,
     TagChip,
   },
   props: {
-    isDrawer: {
+    isFixed: {
       type: Boolean,
       default: false,
     },
+  },
+  data () {
+    return {
+      catalogProps: {
+        container: '#post',
+        levelList: ['h3', 'h4', 'h5'],
+      },
+    };
   },
   computed: {
     tags () {
@@ -87,5 +118,9 @@ export default {
       text-decoration: underline;
     }
   }
+}
+.fixed {
+  position: fixed;
+  top: 28px;
 }
 </style>

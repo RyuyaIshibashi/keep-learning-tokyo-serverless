@@ -77,7 +77,7 @@ module.exports = {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/dotenv',
-    ['@nuxtjs/google-fonts', { families: { 'Noto+Sans+JP': true }, display: 'body', download: true, inject: true }]
+    ['@nuxtjs/google-fonts', { families: { 'Noto+Sans+JP': true }, display: 'body', download: true, inject: true }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
