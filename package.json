@@ -14,7 +14,7 @@
     "lint:fix": "vue-cli-service lint .",
     "precommit": "npm run lint",
     "sls": "sls",
-    "sls:deploy": "sls deploy",
+    "sls:deploy": "sls deploy --force",
     "deploy": "cross-env NODE_ENV=production ENDPOINT_ENV=cf node bin/deploy/index.js",
     "deploy:api_gw": "cross-env NODE_ENV=production ENDPOINT_ENV=api_gw run-s build sls:deploy",
     "delete": "sls remove"
