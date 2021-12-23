@@ -2,7 +2,7 @@
  * キャッシュを行うミドルウェアのサンプル
  */
 
-const isMyPage = url => {
+const isMyPage = (url) => {
   return /^\/my/.test(url);
 };
 

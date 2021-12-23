@@ -1,7 +1,7 @@
-const { app } = require('./app');
-const { nuxt, config } = require('./core/nuxt');
 const { Builder } = require('nuxt');
 const consola = require('consola');
+const { app } = require('./app');
+const { nuxt, config } = require('./core/nuxt');
 
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 3000;
