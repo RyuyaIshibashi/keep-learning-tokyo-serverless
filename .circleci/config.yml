@@ -4,7 +4,7 @@ executors:
   default:
     working_directory: ~/workspace
     docker:
-      - image: circleci/node:14.18.2
+      - image: cimg/node:14.18.2
 
 commands:
   save_app_modules:
@@ -35,12 +35,6 @@ jobs:
       - checkout
       # - restore_app_modules
       # - restore_scripts_modules
-      - run:
-          name: Uninstall yarn
-          command: npm uninstall yarn -g
-      - run:
-          name: Install yarn
-          command: npm install yarn@1.22.5 -g
       - run:
           name: Install app modules
           command: yarn install --frozen-lockfile
