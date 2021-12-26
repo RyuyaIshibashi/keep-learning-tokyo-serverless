@@ -2,7 +2,7 @@
   "name": "keep-learning-tokyo-lambda",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/mya-ake/nuxt-on-lambda.git",
+  "repository": "https://github.com/RyuyaIshibashi/keep-learning-tokyo-serverless",
   "author": "ryuya ishibashi",
   "license": "MIT",
   "scripts": {

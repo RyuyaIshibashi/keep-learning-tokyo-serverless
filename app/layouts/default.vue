@@ -47,7 +47,8 @@ export default {
     sideBarTop: 0,
   }),
   mounted () {
-    this.sideBarTop = document.getElementById('catalog').getBoundingClientRect().top;
+    this.sideBarTop =
+      document.getElementById('hot-tags').getBoundingClientRect().bottom + 32;
   },
   methods: {
     onScroll (e) {

@@ -30,7 +30,10 @@
         </div>
       </v-row>
     </div>
-    <div class="hot-tags mb-8">
+    <div
+      id="hot-tags"
+      class="hot-tags mb-8"
+    >
       <v-row>
         <v-col class="hot-tags-title">
           <h3 class="pr-3">
