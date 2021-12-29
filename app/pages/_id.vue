@@ -105,11 +105,6 @@ export default Vue.extend({
       }
     },
   },
-  methods: {
-    goto (path) {
-      this.$router.push(path);
-    },
-  },
 });
 </script>
 <style>
@@ -175,7 +170,7 @@ export default Vue.extend({
     display: inline-block;
     padding: 0.1em 0.25em; /* 文字周りの余白 */
     color: #444; /* 文字色 */
-    background-color: #e7edf3; /* 背景色 */
+    background-color: #e7edf3!important; /* 背景色 */
     border-radius: 3px; /* 角丸 */
     border: solid 1px #d6dde4; /* 枠線 */
   }

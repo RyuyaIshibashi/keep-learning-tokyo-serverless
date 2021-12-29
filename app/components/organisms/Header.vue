@@ -5,22 +5,24 @@
         color="white"
       >
         <v-container class="d-flex align-center">
-          <v-toolbar-title
-            class="d-flex align-center link-hover"
-            @click="gotoIndex()"
+          <a
+            class="link-no-decoration"
+            href="/"
           >
-            <v-img
-              alt="Vuetify Logo"
-              class="shrink"
-              contain
-              src="/assets/img/logo.png"
-              transition="scale-transition"
-              width="30"
-            />
-            <span class="text-subtitle-1 font-weight-bold ml-2">
-              Keep-Learning.Tokyo
-            </span>
-          </v-toolbar-title>
+            <v-toolbar-title class="d-flex align-center">
+              <v-img
+                alt="Vuetify Logo"
+                class="shrink"
+                contain
+                src="/assets/img/logo.png"
+                transition="scale-transition"
+                width="30"
+              />
+              <span class="text-subtitle-1 font-weight-bold ml-2">
+                Keep-Learning.Tokyo
+              </span>
+            </v-toolbar-title>
+          </a>
           <v-spacer />
           <v-app-bar-nav-icon
             class="d-lg-none"
@@ -59,9 +61,6 @@ export default {
     };
   },
   methods: {
-    gotoIndex () {
-      this.$router.push('/');
-    },
     openDrawer () {
       this.$set(this, 'drawer', true);
     },

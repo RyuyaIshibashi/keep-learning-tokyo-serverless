@@ -17,13 +17,15 @@
           {{ post.sys.locatedCreatedAt }}
         </div>
       </v-row>
-      <v-row
-        class="mt-2 link-hover"
-        @click="gotoArticle(post.fields.name)"
-      >
-        <h2 class="link-title text-h5 font-weight-bold">
-          {{ post.fields.title }}
-        </h2>
+      <v-row class="mt-2">
+        <a
+          class="link-no-decoration"
+          :href="'/' + post.fields.name"
+        >
+          <h2 class="link-title text-h5 font-weight-bold">
+            {{ post.fields.title }}
+          </h2>
+        </a>
       </v-row>
       <v-row class="mt-1">
         <TagChip
@@ -57,11 +59,6 @@ export default {
     posts: {
       type: Array,
       required: true,
-    },
-  },
-  methods: {
-    gotoArticle (id) {
-      this.$router.push(`/${id}`);
     },
   },
 };

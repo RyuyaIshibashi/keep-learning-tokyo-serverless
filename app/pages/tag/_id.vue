@@ -54,11 +54,6 @@ export default Vue.extend({
       },
     };
   },
-  methods: {
-    gotoArticle (id) {
-      this.$router.push(`/${id}`);
-    },
-  },
 });
 </script>
 <style lang="scss" scoped>
