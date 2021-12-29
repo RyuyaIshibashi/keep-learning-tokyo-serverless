@@ -22,18 +22,19 @@ custom:
 
 # 少しでもデプロイのパッケージファイルを少なくする
 package:
-  individually: false
   excludeDevDependencies: true
   exclude:
     - .**
     - .**/*
     - app/**
+    - scripts/**
     - LICENSE
     - README.md
     - package.json
     - yarn.lock
     # Node.js 上で使われないモジュール
     # 重いものを優先的に除外
+    - node_modules/eslint**/**
     - node_modules/babel**/**
     - node_modules/caniuse-db/**
     - node_modules/prettier/**
