@@ -24,6 +24,7 @@
 </template>
 <script>
 import Vue from 'vue';
+import itemTypes from '@/scripts/itemTypes';
 import util from '@/scripts/util';
 import CategoryChip from '@/components/molecules/CategoryChip';
 import metatag from '@/metatag/metatag';
@@ -35,19 +36,7 @@ export default Vue.extend({
   },
   mixins: [metatag, util],
   async asyncData ({ store }) {
-    const categories = await store.dispatch('contentfulGetAllCategories');
-    await Promise.all(categories.map(async (category) => {
-      const posts = await store.dispatch('contentfulGetCategoryPosts', {
-        'fields.category.sys.id': category.sys.id,
-      });
-      category.fields.posts = posts;
-    }));
-    categories.sort((a, b) => {
-      if (a.fields.posts.length > b.fields.posts.length) { return -1; }
-      if (a.fields.posts.length < b.fields.posts.length) { return 1; }
-      return 0;
-    });
-
+    const categories = await util.methods.$_getAllItems(store, itemTypes.Category);
     return {
       categories,
       meta: {

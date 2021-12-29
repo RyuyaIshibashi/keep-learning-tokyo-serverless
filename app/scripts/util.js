@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import moment from 'moment-timezone';
+import itemTypes from '@/scripts/itemTypes';
 
 const TO_STRING = Object.prototype.toString;
 
@@ -43,26 +44,30 @@ export default {
     $_toLocalDate (dateTime) {
       return moment(dateTime).format('YYYY/MM/DD HH:mm');
     },
-    async $_getAllTags (store) {
-      let tags = await store.dispatch('contentfulGetAllTags');
-      await Promise.all(tags.map(async (tag) => {
-        const posts = await store.dispatch('contentfulGetTagPosts', {
-          'fields.tags.sys.id': tag.sys.id,
-        });
-        tag.fields.posts = posts;
+    async $_getAllItems (store, itemType) {
+      let items = await store.dispatch(`contentfulGetAll${itemType.plural}`);
+      await Promise.all(items.map(async (item) => {
+
+        const key = (itemType === itemTypes.Category)
+          ? itemType.singular.toLowerCase()
+          : itemType.plural.toLowerCase();
+        let param = {};
+        param[`fields.${key}.sys.id`] = item.sys.id;
+        const posts = await store.dispatch(`contentfulGet${itemType.singular}Posts`, param);
+        item.fields.posts = posts;
       }));
 
-      tags = tags.filter((tag) => {
-        return tag.fields.posts.length > 0;
+      items = items.filter((item) => {
+        return item.fields.posts.length > 0;
       })
 
-      tags.sort((a, b) => {
+      items.sort((a, b) => {
         if (a.fields.posts.length > b.fields.posts.length) { return -1; }
         if (a.fields.posts.length < b.fields.posts.length) { return 1; }
         return 0;
       });
 
-      return tags;
+      return items;
     },
   }
 };

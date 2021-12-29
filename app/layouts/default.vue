@@ -222,10 +222,13 @@ $color-pack: false;
   margin-left: 24px;
 }
 
-.link-hover {
-  &:hover {
-    cursor: pointer;
-    color: #00796B;
+.link-no-decoration {
+  text-decoration: none;
+  * {
+    color: $color-grey-01;
+  }
+  .white-text {
+    color: $color-white;
   }
 }
 </style>

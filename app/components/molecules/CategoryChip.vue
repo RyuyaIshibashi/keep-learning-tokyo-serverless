@@ -11,19 +11,26 @@
       class="chip-overflow"
       :class="{ 'mt-1': isSmall, 'mr-1': isSmall,
                 'mt-2': !isSmall, 'mr-2': !isSmall }"
-      @click="gotoCategoryArticles(category.fields.title)"
     >
-      <div v-if="!isCount">
-        {{ category.fields.title }}
-      </div>
-      <div v-else>
-        <span>
-          {{ `${category.fields.title}:` }}
-        </span>
-        <span class="pl-1">
-          {{ `${postsLength(category)}記事` }}
-        </span>
-      </div>
+      <a
+        class="link-no-decoration"
+        :href="'/category/' + category.fields.title"
+      >
+        <div
+          v-if="!isCount"
+          class="white-text"
+        >
+          {{ category.fields.title }}
+        </div>
+        <div v-else>
+          <span class="white-text">
+            {{ `${category.fields.title}:` }}
+          </span>
+          <span class="pl-1 white-text">
+            {{ `${postsLength(category)}記事` }}
+          </span>
+        </div>
+      </a>
     </v-chip>
   </div>
 </template>
@@ -45,9 +52,6 @@ export default {
     },
   },
   methods: {
-    gotoCategoryArticles (id) {
-      this.$router.push(`/category/${id}`);
-    },
     postsLength (category) {
       if (category.fields.posts) {
         return category.fields.posts.length;
