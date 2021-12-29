@@ -38,6 +38,7 @@ package:
     - node_modules/babel**/**
     - node_modules/caniuse-db/**
     - node_modules/prettier/**
+    - node_modules/vuetify/**
     - node_modules/yargs/**
     - node_modules/xxhashjs/**
     - node_modules/jschardet/**
