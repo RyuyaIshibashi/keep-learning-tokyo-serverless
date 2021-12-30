@@ -43,6 +43,8 @@ package:
     - node_modules/@fortawesome/**
     - node_modules/sass/**
     - node_modules/@mdi/**
+    - node_modules/json-refs/**
+    - node_modules/node-sass/**
     - node_modules/yargs/**
     - node_modules/xxhashjs/**
     - node_modules/jschardet/**
