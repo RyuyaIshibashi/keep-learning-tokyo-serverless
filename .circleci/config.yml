@@ -76,22 +76,22 @@ workflows:
       - install:
           filters:
             branches:
-              only: /.*/
+              only: /master/
       - lint:
           requires:
             - install
           filters:
             branches:
-              only: /.*/
+              only: /master/
       - build-test:
           requires:
             - lint
           filters:
             branches:
-              ignore: /master/
+              only: /master/
       - deploy:
           requires:
-            - lint
+            - build-test
           filters:
             branches:
               only: /master/
