@@ -45,7 +45,7 @@ package:
     - node_modules/@mdi/**
     - node_modules/json-refs/**
     - node_modules/node-sass/**
-    - node_modules/moment/**
+    - node_modules/tabtab/**
     - node_modules/yargs/**
     - node_modules/xxhashjs/**
     - node_modules/jschardet/**
